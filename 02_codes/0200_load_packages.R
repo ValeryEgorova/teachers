@@ -24,11 +24,11 @@ required_packages <- c("tidyverse",
                        "erer",
                        "caret",
                        "e1071",
-                       "margins",
                        "Hmisc",
                        "naniar",
                        "ggpubr",
-                       "DescTools")
+                       "DescTools",
+                       "erer")
 
 
 # Function to check and install packages
