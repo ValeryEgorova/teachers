@@ -28,7 +28,10 @@ required_packages <- c("tidyverse",
                        "naniar",
                        "ggpubr",
                        "DescTools",
-                       "erer")
+                       "erer",
+                       "ggridges",
+                       "factoextra",
+                       "cluster")
 
 
 # Function to check and install packages

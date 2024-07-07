@@ -6,9 +6,6 @@
 # Date: 03 July 2024
 #-------------------------------------------------------------------
 
-library (factoextra)
-library (cluster)
-
 data_clust <- 
   data %>%
   select(exp_y) %>%
@@ -39,6 +36,8 @@ data_with_cl <-
   bind_cols(km$cluster) %>%
   mutate(cluster = `...27`) %>%
   select(-`...27`)
+
+saveRDS(data_with_cl, file.path(outData,"data_with_cl.xlsx"))
 
 clust1 <- 
   data_with_cl %>%
