@@ -11,16 +11,32 @@ mod <- lm(exp_y ~  sex + 	em_CISS + 	distr_CISS +	abil +	 bescom +	mstit +	neter
            data = data_with_cl)
 summary(mod)
 
+durbinWatsonTest(mod)
+autoplot(mod)
+vif(mod)
+
+ggplot(data_with_cl, aes(x=exp_m, y=mstit)) + 
+  geom_point()
+
 ############
 mod2 <- lm(exp_y ~ 	em_CISS + distr_CISS +	abil  + type, 
           data = data_with_cl)
 summary(mod2)
+
+durbinWatsonTest(mod2)
+autoplot(mod2)
+vif(mod2)
+
 
 ###########
 mod3 <- lm(exp_y ~	em_CISS + 	distr_CISS +
             	abil +	bescom +	mstit +	neter, 
           data = data_with_cl)
 summary(mod3)
+
+durbinWatsonTest(mod3)
+autoplot(mod3)
+vif(mod3)
 
 ######################
 data_for_glm <- 
