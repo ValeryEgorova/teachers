@@ -5,6 +5,9 @@
 # Author:  Valeria Egorova
 # Date: 03 July 2024
 #-------------------------------------------------------------------
+data_with_cl <- read_excel("03_outputs/0301_data/data_with_cl.xlsx")
+
+
 
 #############
 mod <- lm(exp_y ~  sex + 	em_CISS + 	distr_CISS +	abil +	 bescom +	mstit +	neter, 
@@ -94,6 +97,28 @@ corr_matrix2 <- cor(to_check2)
 p.mat2 = cor_pmat(to_check2)
 ggcorrplot(corr_matrix2,  type = "lower",
            lab = TRUE, p.mat = p.mat2, tl.cex = 10, lab_size = 2.5)
+
+
+######################
+
+data2 <- 
+  data_with_cl %>%
+  mutate(int_coping = task_CISS + em_CISS + av_CISS + distr_CISS + sdistr_CISS)
+
+mod4 <- lm(int_coping ~		abil   +	lich_t + type + exp_y + sex, 
+           data = data2)
+summary(mod4)
+
+durbinWatsonTest(mod4)
+autoplot(mod4)
+vif(mod4)
+
+
+
+
+
+
+
 
 
 #task_CISS +	em_CISS + av_CISS +	distr_CISS +
