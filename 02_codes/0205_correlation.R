@@ -43,4 +43,7 @@ rownames(p.mat2) <- c("Возраст", "Стаж", "ПОК",	"ЭОК", "Изб�
                       "ПА",	"НА",	"Конфликтность",	"СТ",	"ЛТ")
 
 ggcorrplot(corr_matrix2,  type = "lower", colors = c("#6D9EC1", "white", "#E46726"),
-           lab = TRUE, p.mat = p.mat2, tl.cex = 10, lab_size = 2.5)
+           lab = TRUE, p.mat = p.mat2, legend.title = "Сила связи",
+           tl.cex = 10, lab_size = 2.5) +
+  theme(axis.text = element_text(color = "black"))
+
